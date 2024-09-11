@@ -18,7 +18,7 @@ const Automation = () => {
             image: AgentValidation,
             demoText: (
                 <>
-                    "Customer onboarding is often tedious and time-consuming. With <strong>Ospyn AI</strong>, you can save up to <strong>25%</strong> in turnaround time by ensuring proper validation of customer information, leading to annual savings of up to <strong>INR 6.25 Crores</strong>"
+                    "Customer onboarding is often tedious and time-consuming. With <strong>Ospyn AI</strong>, you can save up to <strong>25%</strong> in turnaround time by ensuring proper validation of customer information, leading to annual savings of up to <strong>0.75 million USD</strong>"
                 </>
             )
         },
@@ -28,7 +28,7 @@ const Automation = () => {
             image: AgentInvoice,
             demoText: (
                 <>
-                    "Manually Calibrating a sync between your purchase orders, invoices, and GNRs is a complex and error-prone task. With <strong>Ospyn AI</strong>'s Invoice AI Assistant, you can significantly improve your system's efficiency and accuracy, saving <strong>50%</strong> of the time spent on invoice processing and reducing overall costs by <strong>₹9.375 crore</strong> annually"
+                    "Manually Calibrating a sync between your purchase orders, invoices, and GNRs is a complex and error-prone task. With <strong>Ospyn AI</strong>'s Invoice AI Assistant, you can significantly improve your system's efficiency and accuracy, saving <strong>50%</strong> of the time spent on invoice processing and reducing overall costs by <strong>1.13 million USD</strong> annually"
                 </>
             )
         },
@@ -38,7 +38,7 @@ const Automation = () => {
             image: AgentConversational,
             demoText: (
                 <>
-                   "Keeping track of every update from the RBI is both critical and risky. <strong>Ospyn AI</strong> plays a crucial role by saving <strong>50%</strong> of the time spent reviewing and checking RBI guidelines through AI-powered mapping, resulting in savings of up to <strong>INR 7.5 Crores</strong> annually"</>
+                   "Keeping track of every update from the RBI is both critical and risky. <strong>Ospyn AI</strong> plays a crucial role by saving <strong>50%</strong> of the time spent reviewing and checking RBI guidelines through AI-powered mapping, resulting in savings of up to <strong>0.90 million USD</strong> annually"</>
             )
         },
         {
@@ -47,7 +47,7 @@ const Automation = () => {
             image: AgentCircular,
             demoText: (
                 <>
-                    "We all need an assistant to resolve our queries at the workplace. <strong>Ospyn AI</strong>, our conversational AI assistant, has the capability to assist each and every employee within a department, saving up to <strong>50%</strong> of the time spent on information retrieval, which results in an annual saving of <strong>₹15 crore</strong>"  </>
+                    "We all need an assistant to resolve our queries at the workplace. <strong>Ospyn AI</strong>, our conversational AI assistant, has the capability to assist each and every employee within a department, saving up to <strong>50%</strong> of the time spent on information retrieval, which results in an annual saving of <strong>1.81 million USD</strong>"  </>
             )
         }
     ];

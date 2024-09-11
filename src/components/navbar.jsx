@@ -7,6 +7,7 @@ function Navbar({ scrollToAgent, scrollToAutomation, scrollToAnalyticsNew }) {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [activeItem, setActiveItem] = useState(""); // Track active navbar item
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,12 +28,18 @@ function Navbar({ scrollToAgent, scrollToAutomation, scrollToAnalyticsNew }) {
     }
   }, [toggleMenu]);
 
+  const handleNavClick = (section, scrollFunc) => {
+    setActiveItem(section); // Update active item
+    scrollFunc();
+    setToggleMenu(false); // Close menu on click
+  };
+
   return (
     <div className="app z-30">
       <motion.nav
         initial={{ y: 0 }}
-        animate={{ y: showNavbar ? 0 : -100 }} 
-        transition={{ type: "tween", duration: 0.3 }} 
+        animate={{ y: showNavbar ? 0 : -100 }}
+        transition={{ type: "tween", duration: 0.3 }}
         className="bg-white shadow-md w-full z-50 fixed top-0"
       >
         <div className="container mx-auto flex justify-between items-center px-5 lg:px-20 py-4">
@@ -45,39 +52,27 @@ function Navbar({ scrollToAgent, scrollToAutomation, scrollToAnalyticsNew }) {
           </div>
 
           <div className="hidden lg:flex gap-8 ml-auto items-center">
-            <a
-              href="#"
-              className="text-gray-700 hover:text-primary"
-              onClick={(e) => {
-                e.preventDefault(); // Prevent default link behavior
-                scrollToAutomation();
-              }}
-            >
-              Use Cases
-            </a>
-            <a
-              href="#"
-              className="text-gray-700 hover:text-primary"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToAnalyticsNew();
-              }}
-            >
-              System Architecture
-            </a>
-            <a
-              href="#"
-              className="text-gray-700 hover:text-primary"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToAgent();
-              }}
-            >
-              Benefits
-            </a>
-            {/* <button className="px-4 py-2 rounded-lg text-white bg-blue-800">
-              Get Started Now
-            </button> */}
+            {[
+              { name: "Use Cases", onClick: scrollToAutomation },
+              { name: "System Architecture", onClick: scrollToAnalyticsNew },
+              { name: "Benefits", onClick: scrollToAgent },
+            ].map((item) => (
+              <motion.a
+                key={item.name}
+                href="#"
+                className={`text-gray-700 transition-colors duration-300 ${
+                  activeItem === item.name ? "text-blue-600" : "hover:text-primary"
+                }`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(item.name, item.onClick);
+                }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {item.name}
+              </motion.a>
+            ))}
           </div>
 
           <div className="lg:hidden">
@@ -94,42 +89,28 @@ function Navbar({ scrollToAgent, scrollToAutomation, scrollToAnalyticsNew }) {
           }`}
         >
           <div className="py-6 px-8">
-            <a
-              href="#"
-              className="block py-2 text-gray-700 font-bold border-l-4 border-gray-600"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToAutomation();
-                setToggleMenu(false); // Close menu on click
-              }}
-            >
-              Use Cases
-            </a>
-            <a
-              href="#"
-              className="block py-2 text-gray-700"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToAnalyticsNew();
-                setToggleMenu(false); // Close menu on click
-              }}
-            >
-              System Architecture
-            </a>
-            <a
-              href="#"
-              className="block py-2 text-gray-700"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToAgent();
-                setToggleMenu(false); // Close menu on click
-              }}
-            >
-              Benefits
-            </a>
+            {[
+              { name: "Use Cases", onClick: scrollToAutomation },
+              { name: "System Architecture", onClick: scrollToAnalyticsNew },
+              { name: "Benefits", onClick: scrollToAgent },
+            ].map((item) => (
+              <a
+                key={item.name}
+                href="#"
+                className={`block py-2 text-gray-700 font-bold border-l-4 ${
+                  activeItem === item.name ? "border-blue-600 text-blue-600" : "border-gray-600"
+                }`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(item.name, item.onClick);
+                }}
+              >
+                {item.name}
+              </a>
+            ))}
             <button
               className="block w-full px-4 py-2 mt-4 text-center text-white bg-blue-800 rounded-lg"
-              onClick={() => setToggleMenu(false)} 
+              onClick={() => setToggleMenu(false)}
             >
               Get Started Now
             </button>
