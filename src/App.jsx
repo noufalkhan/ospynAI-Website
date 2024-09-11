@@ -45,7 +45,7 @@ const App = () => {
     
       
       {/* <Demos /> */}
-      <UseCase/>
+      {/* <UseCase/> */}
       <FooterNew />
     </div>
   );
