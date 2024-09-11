@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import Carousel1 from '../assets/carousel1.png';
 import AgentValidation from '../assets/AgentValidation.png';
 import AgentInvoice from '../assets/AgentInvoice.png';
 import AgentCircular from '../assets/AgentCircular.png';
