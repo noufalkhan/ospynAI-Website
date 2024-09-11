@@ -76,12 +76,12 @@ const HeroNew = () => {
             variants={subtleStaggerChildren}
           >
             {/* Heading and subheading with subtle fade-in effect */}
-            <motion.p className='text-gray-800 md:text-3xl ' variants={subtleFadeIn}>
+            <motion.p className='text-gray-800 md:text-3xl  ' variants={subtleFadeIn}>
               Revolutionize Your Business with
             </motion.p>
-            <motion.h1 className='text-2xl md:text-7xl  text-black text-center md:text-start font-bold' variants={subtleFadeIn}><span className='text-[#493aca]'>AI</span> Powered Process Automation!
+            <motion.h1 className='text-4xl md:text-7xl  text-black text-center md:text-start font-bold' variants={subtleFadeIn}><span className='text-[#493aca]'>AI</span> Powered Process Automation!
             </motion.h1>
-            <motion.p className='text-black text-base w-3/4 md:w-full text-center md:text-start tracking-wide my-5' variants={subtleFadeIn}>
+            <motion.p className='text-black text-base w-3/4 md:w-full text-center md:text-start  my-2 md:my-5' variants={subtleFadeIn}>
               Unlock the potential of AI-driven efficiency and innovation. Transform complex workflows into seamless, intelligent processes tailored to your unique business needs.
             </motion.p>
 
@@ -105,7 +105,7 @@ const HeroNew = () => {
          
           {/* Image section (visible on large screens) */}
           <motion.div
-            className='h-auto md:h-full w-full flex flex-col items-center justify-end sm:hidden lg:flex mt-20'
+            className='h-auto md:h-full w-full flex flex-col items-center justify-end sm:hidden lg:flex mt-5 md:mt-20'
             initial='hidden'
             animate='visible'
             variants={subtleFadeIn}

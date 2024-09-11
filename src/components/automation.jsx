@@ -77,8 +77,8 @@ const Automation = () => {
             <div className='col-span-12 lg:col-span-9 bg-[#f0f1ff] rounded-xl p-10 flex flex-col justify-between'>
                 {/* Carousel Content Section */}
                 <div className='flex flex-col items-center justify-center '>
-                    <h2 className='text-2xl lg:text-4xl font-semibold tracking-wide mb-2'>{cards[selectedCard].title}</h2>
-                    <p className='text-lg'>{cards[selectedCard].content}</p>
+                    <h2 className='text-2xl text-center lg:text-4xl font-semibold tracking-wide mb-2'>{cards[selectedCard].title}</h2>
+                    <p className='text-lg text-center'>{cards[selectedCard].content}</p>
                 </div>
                 <motion.div
                     key={selectedCard}
@@ -105,7 +105,7 @@ const Automation = () => {
                 </div>
 
                 <div className='flex items-center justify-center gap-5'>
-                    <p className='lg:w-2/3 mt-3 text-start'>{cards[selectedCard].demoText}</p>
+                    <p className='lg:w-2/3 mt-3 text-start '>{cards[selectedCard].demoText}</p>
                 </div>
             </div>
         </div>

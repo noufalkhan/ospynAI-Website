@@ -12,10 +12,10 @@ const AnalyticsNew = () => {
   return (
     <div className="h-auto bg-gradient-to-r from-[#eee6ff] via-transparent to-[#ffe2f9] py-20 px-10 flex flex-col items-center justify-center gap-10">
       <div className="bg-red-40 w-full flex flex-col items-center justify-center gap-2">
-        <p className="text-2xl lg:text-4xl font-semibold">
+        <p className="text-2xl text-center lg:text-4xl font-semibold">
           The Backbone of Seamless Integration and Smart Analytics
         </p>
-        <p className="text-base lg:text-xl text-gray-600 ">
+        <p className="text-base text-center lg:text-xl text-gray-600 ">
           Transform scattered information into a strategic advantage with
           structured data.
         </p>
@@ -24,7 +24,7 @@ const AnalyticsNew = () => {
       {/* main block */}
       <div className=" xl:w-[1400px] flex items-center justify-center relative">
         <div className="flex items-center justify-center">
-          <img className="bg-green-30 w-1/2 xl:w-3/4 z-10" src={mainblock} alt="" />
+          <img className="bg-green-30  xl:w-3/4 z-10" src={mainblock} alt="" />
 
           <motion.img
             className="absolute -top-5 right-36 hidden xl:flex"
