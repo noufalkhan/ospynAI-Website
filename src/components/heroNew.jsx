@@ -98,7 +98,7 @@ const HeroNew = () => {
                 whileTap='tap'
                 onClick={handleClick}
               >
-                Get Started Now
+                Get Started Now.
               </motion.button>
             </motion.div>
           </motion.div>
