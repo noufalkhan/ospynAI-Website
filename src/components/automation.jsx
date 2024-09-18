@@ -32,8 +32,8 @@ const Automation = () => {
             )
         },
         {
-            title: 'AI Powered RBI Circular Mapping',
-            content: 'AI-powered tool maps RBI updates, ensuring internal circulars stay updated.',
+            title: 'AI Powered Central Bank Circular/Compliance Mapping',
+            content: 'AI-powered tool maps Central Bank updates, ensuring internal circulars stay updated.',
             image: AgentConversational,
             demoText: (
                 <>
@@ -42,7 +42,7 @@ const Automation = () => {
         },
         {
             title: 'Conversational Assistant For Information Retrieval',
-            content: 'Boost your DMS with AI precision and role-based access for departments.',
+            content: 'Boost your content and data repository with AI precision and role-based access for departments.',
             image: AgentCircular,
             demoText: (
                 <>
