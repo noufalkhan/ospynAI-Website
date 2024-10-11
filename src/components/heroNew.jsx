@@ -82,8 +82,9 @@ const HeroNew = () => {
             <motion.h1 className='text-4xl md:text-7xl  text-black text-center md:text-start font-bold' variants={subtleFadeIn}><span className='text-[#493aca]'>AI</span> Powered Process Automation!
             </motion.h1>
             <motion.p className='text-black text-base w-3/4 md:w-full text-center md:text-start  my-2 md:my-5' variants={subtleFadeIn}>
-            Lead with confidence by transforming uncertainty into an advantage through laser-focused, Gen-AI-powered process optimization.
+            Lead with confidence by transforming uncertainty into an advantage through laser-focused, <br /> Gen-AI-powered process optimization.
             </motion.p>
+        
 
             {/* Animated Button with glowing border */}
             <motion.div
