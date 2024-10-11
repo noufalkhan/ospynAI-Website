@@ -47,3 +47,47 @@ a:hover {
 ::-webkit-scrollbar-thumb:hover{
   background: #9d40e0;
 }
+
+@layer components {
+  .divider-horizontal {
+    border-top: 1px solid #E0E0E0; /* Adjust the color and thickness as needed */
+    margin: 0.5rem 0; /* Adjust spacing above and below the divider */
+  }
+
+  .divider-vertical {
+    border-left: 1px solid #E0E0E0; /* Adjust the color and thickness as needed */
+    height: auto; /* Adjust height as needed */
+    margin: 0 0.5rem; /* Adjust spacing left and right of the divider */
+  }
+}
+
+.shimmer-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-effect::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  transform: translateX(-100%);
+  animation: shimmer 1.5s infinite linear;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

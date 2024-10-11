@@ -49,7 +49,7 @@ const subtleFadeIn = {
 
 const HeroNew = () => {
   const handleClick = () => {
-    window.open('https://ospyn.com/Contact', '_blank');
+    window.open('https://thebigdatainsights.com/contact-us', '_blank');
   };
 
   return (
@@ -59,7 +59,7 @@ const HeroNew = () => {
         
         {/* Content container with hexagon background */}
         <div
-          className='h-auto  container mx-auto flex flex-col md:flex-row sm:px-10y lg:pl-10'
+          className='h-auto xl:h-full  container mx-auto flex flex-col md:flex-row sm:px-10y lg:pl-10'
           style={{
             backgroundImage: `url(${HexagonBackground})`,
             backgroundSize: 'cover',

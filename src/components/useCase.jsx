@@ -1,115 +1,80 @@
-import React, { useRef, useState, useEffect } from 'react';
+import { IconTrendingUp, IconAdjustmentsHorizontal, IconStar } from '@tabler/icons-react';
+import React from 'react';
+import Diagram4 from '../assets/Diagram4.svg';
 import { motion } from 'framer-motion';
-import airightpic from '../assets/airightpic.svg';
-import aileftpic from '../assets/aileftpic.svg';
 
-const AnimatedCard = ({ children, className }) => {
-  const ref = useRef(null);
-  const [inView, setInView] = useState(false);
+const sectionVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.2 },
+  }),
+};
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, []);
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
-      transition={{ duration: 1, ease: 'easeInOut' }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
+const imageVariants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.5, ease: 'easeInOut' },
+  },
 };
 
 const UseCase = () => {
   return (
-    <div className='bg-purple-200 w-full lg:px-20 py-20 flex flex-col gap-10'>
-      {/* Section Header */}
-      <AnimatedCard className='w-full flex flex-col items-center justify-center text-center gap-3 p-2'>
-        <h1 className='text-2xl lg:text-4xl font-semibold tracking-wide'>
-          Ospyn AI Use Cases
-        </h1>
-        <p className='text-base lg:text-lg text-gray-600'>
-          Transform scattered information into a strategic advantage with structured data.
-        </p>
-      </AnimatedCard>
+    <div className='py-5 bg-[#f5f5ff]'>
+      <div className='w-full flex flex-col items-center justify-center p-5 my-10'>
+        <h1 className='text-2xl lg:text-4xl font-semibold'>How OGI Helps You Achieve More</h1>
+        <p>Unlock productivity, improve outcomes, and simplify operations with OGI.</p>
+      </div>
 
-      {/* Card One: Account Payable Automation */}
-      <AnimatedCard className='container w-[90%] rounded-3xl mx-auto bg-gradient-to-r from-[#4143d0] to-[#870199] flex'>
-        <div className='w-full bg-blue-20 py-20 p-5 lg:pl-20 lg:pr-5 flex flex-col gap-10'>
-          {/* Card Content */}
-          <div className='flex flex-col gap-4'>
-            <p className='text-lg text-white'>AI-Driven</p>
-            <p className='text-3xl text-white'>Account Payable Automation</p>
-            <p className='text-white text-sm tracking-wide'>
-              Ospyn OGI automates the Accounts Payable process by intelligently matching Purchase Orders (POs),
-              Invoices, and Goods Receipt Notes (GRNs). The system automatically extracts and validates invoice data,
-              detects duplicates, and routes exceptions for manual verification when needed.
-            </p>
-          </div>
-          {/* User Benefits */}
-          <div className='flex flex-col gap-4'>
-            <p className='text-xl text-white font-medium'>User Benefit</p>
-            <p className='text-white text-sm tracking-wide'>
-              Streamlines invoice processing, reduces manual intervention, and ensures faster, more accurate payment cycles.
-              Minimizes errors, enhances financial control, and improves overall operational efficiency.
-            </p>
-          </div>
+      <div className='flex bg-gradient-to-r from-[#4143d0] to-[#870199] h-auto rounded-3xl w-[90%] mx-auto'>
+        <div className='flex flex-col p-24 gap-10 items-center justify-center w-full lg:w-8/12 h-auto'>
+          {/* Sections with staggered animation */}
+          {[
+            { title: 'Increase Revenue', icon: <IconTrendingUp className='w-10 h-10 text-cyan-300' /> },
+            { title: 'Optimize Operations', icon: <IconAdjustmentsHorizontal className='w-10 h-10 text-cyan-300' /> },
+            { title: 'Improve Experience', icon: <IconStar className='w-10 h-10 text-cyan-300' /> },
+          ].map((item, index) => (
+            <motion.div
+              key={item.title}
+              className='flex items-center gap-3'
+              variants={sectionVariants}
+              initial="hidden"
+              whileInView="visible"
+              custom={index}
+              viewport={{ once: true, amount: 0.3 }} // Trigger only the first time in view
+            >
+              <div className='bg-gradient-to-t from-[#6c64d9] to-[#5d54d2] p-5 rounded-xl'>
+                {item.icon}
+              </div>
+              <div className='text-white flex flex-col gap-1'>
+                <p className='text-2xl font-semibold'>{item.title}</p>
+                <p>
+                  {item.title === 'Increase Revenue'
+                    ? 'Automating workflows to increase efficiency, enabling employees to focus on strategies that directly boost revenue.'
+                    : item.title === 'Optimize Operations'
+                    ? 'OGI dynamically streamlines processes, cutting out inefficiencies and accelerating task execution through intelligent automation.'
+                    : 'OGI improves the user experience by offering immediate, customized support that enhances overall satisfaction.'}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
-        {/* Image on the Right */}
-        <div className='w-full items-center justify-center hidden lg:flex'>
-          <img className='object-cover w-80' src={airightpic} alt="AI Right" />
-        </div>
-      </AnimatedCard>
 
-      {/* Card Two: Onboarding Process */}
-      <AnimatedCard className='container w-[90%] rounded-3xl mx-auto bg-gradient-to-r from-[#4143d0] to-[#870199] flex'>
-        {/* Image on the Left */}
-        <div className='w-full lg:w-[40%] hidden lg:flex items-center justify-center'>
-          <img className='object-cover w-80' src={aileftpic} alt="AI Left" />
+        <div className='w-5/12 h-full lg:flex hidden'>
+          <motion.img
+            className='object-cover w-[80%] shimmer-effect'
+            src={Diagram4}
+            alt='Diagram'
+            variants={imageVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }} // Trigger only the first time in view
+          />
         </div>
-        <div className='w-full lg:w-[60%] bg-blue-20 py-20 p-5 lg:pl-20 lg:pr-5 flex flex-col gap-10'>
-          {/* Card Content */}
-          <div className='flex flex-col gap-4'>
-            <p className='text-lg text-white'>AI-Driven</p>
-            <p className='text-3xl text-white'>Onboarding Process</p>
-            <p className='text-white text-sm tracking-wide'>
-              Once the documents are manually scanned, Ospyn AI automates data extraction, validation, and verification,
-              ensuring all mandatory fields are complete and compliant. Discrepancies trigger an exception workflow,
-              alerting branches for correction. Verified forms are then seamlessly routed to the checker for approval.
-            </p>
-          </div>
-          {/* User Benefits */}
-          <div className='flex flex-col gap-4'>
-            <p className='text-xl text-white font-medium'>User Benefit</p>
-            <p className='text-white text-sm tracking-wide'>
-              Streamlines invoice processing, reduces manual intervention, and ensures faster, more accurate payment cycles.
-              Minimizes errors, enhances financial control, and improves overall operational efficiency.
-            </p>
-          </div>
-        </div>
-      </AnimatedCard>
+      </div>
     </div>
   );
 };

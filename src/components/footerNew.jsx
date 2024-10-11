@@ -3,7 +3,7 @@ import ospynlogo from '../assets/ospynlogo.svg';
 
 const FooterNew = () => {
     const handleGetStartedClick = () => {
-        window.open('https://ospyn.com/Contact', '_blank');
+        window.open('https://thebigdatainsights.com/contact-us', '_blank');
     };
 
     return (

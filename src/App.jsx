@@ -6,7 +6,11 @@ import Agent from "./components/agent";
 import Navbar from "./components/navbar";
 import Automation from "./components/automation";
 import Demos from "./components/demos";
+import ExtraSection from "./components/extraSection";
+import NewAutomation from "./components/NewAutomation";
+import AiAgents from "./components/AiAgents";
 import UseCase from "./components/useCase";
+import UseCasex from "./components/useCase";
 
 const App = () => {
   const agentRef = useRef(null);
@@ -34,19 +38,26 @@ const App = () => {
       />
       <HeroNew />
       <div ref={automationRef}>
-        <Automation />
+      <NewAutomation/>
+     
+        {/* <Automation /> */}
       </div>
+      <AiAgents/>
+
       <div ref={analyticsRef}>
         <AnalyticsNew />
       </div>
       <div ref={agentRef}>
-        <Agent />
+      <UseCase/>
       </div>
+
     
       
-      {/* <Demos /> */}
-      {/* <UseCase/> */}
+    
+      
       <FooterNew />
+
+      {/* <ExtraSection/> */}
     </div>
   );
 };

@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { IconMenu2 } from "@tabler/icons-react";
+import { IconMenu2, IconX } from "@tabler/icons-react"; // Added close icon
 import ospynai from "../assets/ospynai.svg";
 
 function Navbar({ scrollToAgent, scrollToAutomation, scrollToAnalyticsNew }) {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
-  const [activeItem, setActiveItem] = useState(""); // Track active navbar item
+  const [activeItem, setActiveItem] = useState("");
 
+  // Handle navbar show/hide on scroll
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
@@ -20,16 +21,26 @@ function Navbar({ scrollToAgent, scrollToAutomation, scrollToAnalyticsNew }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [prevScrollPos]);
 
+  // Lock body scroll when mobile menu is open and ensure proper scrolling on resize
   useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024 && toggleMenu) {
+        setToggleMenu(false); // Close the menu when resizing to desktop
+      }
+    };
+    window.addEventListener("resize", handleResize);
+
     if (toggleMenu) {
-      document.body.style.overflow = "hidden"; 
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = ""; 
+      document.body.style.overflow = "auto"; // Reset overflow when menu is closed
     }
+
+    return () => window.removeEventListener("resize", handleResize);
   }, [toggleMenu]);
 
   const handleNavClick = (section, scrollFunc) => {
-    setActiveItem(section); // Update active item
+    setActiveItem(section);
     scrollFunc();
     setToggleMenu(false); // Close menu on click
   };
@@ -43,14 +54,14 @@ function Navbar({ scrollToAgent, scrollToAutomation, scrollToAnalyticsNew }) {
         className="bg-white shadow-md w-full z-50 fixed top-0"
       >
         <div className="container mx-auto flex justify-between items-center px-5 lg:px-20 py-4">
+          {/* Logo */}
           <div className="flex items-center">
             <a href="/" className="font-bold text-gray-700 flex items-center gap-2">
-              <div className="flex items-center justify-center">
-                <img src={ospynai} alt="Logo" />
-              </div>
+              <img src={ospynai} alt="Logo" />
             </a>
           </div>
 
+          {/* Desktop Navigation */}
           <div className="hidden lg:flex gap-8 ml-auto items-center">
             {[
               { name: "Use Cases", onClick: scrollToAutomation },
@@ -75,47 +86,56 @@ function Navbar({ scrollToAgent, scrollToAutomation, scrollToAnalyticsNew }) {
             ))}
           </div>
 
+          {/* Mobile Menu Toggle */}
           <div className="lg:hidden">
             <button onClick={() => setToggleMenu(!toggleMenu)}>
-              <IconMenu2 className="h-6 w-6 text-primary" />
+              {toggleMenu ? (
+                <IconX className="h-6 w-6 text-primary" /> // Close icon when menu is open
+              ) : (
+                <IconMenu2 className="h-6 w-6 text-primary" />
+              )}
             </button>
           </div>
         </div>
 
         {/* Mobile Menu */}
-        <div
-          className={`fixed z-40 w-full bg-gray-100 flex flex-col lg:hidden transition-all duration-300 overflow-y-auto ${
-            toggleMenu ? "h-screen" : "h-0"
-          }`}
-        >
-          <div className="py-6 px-8">
-            {[
-              { name: "Use Cases", onClick: scrollToAutomation },
-              { name: "System Architecture", onClick: scrollToAnalyticsNew },
-              { name: "Benefits", onClick: scrollToAgent },
-            ].map((item) => (
-              <a
-                key={item.name}
-                href="#"
-                className={`block py-2 text-gray-700 font-bold border-l-4 ${
-                  activeItem === item.name ? "border-blue-600 text-blue-600" : "border-gray-600"
-                }`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(item.name, item.onClick);
-                }}
+        {toggleMenu && (
+          <div className="fixed top-0 left-0 w-full h-full bg-gray-100 z-40 flex flex-col lg:hidden">
+            <div className="flex justify-end p-4">
+              {/* Close button at the top */}
+              <button onClick={() => setToggleMenu(false)}>
+                <IconX className="h-8 w-8 text-gray-700" />
+              </button>
+            </div>
+            <div className="flex flex-col items-center justify-center">
+              {[
+                { name: "Use Cases", onClick: scrollToAutomation },
+                { name: "System Architecture", onClick: scrollToAnalyticsNew },
+                { name: "Benefits", onClick: scrollToAgent },
+              ].map((item) => (
+                <a
+                  key={item.name}
+                  href="#"
+                  className={`text-gray-700 font-bold text-lg mb-6 ${
+                    activeItem === item.name ? "text-blue-600" : "hover:text-primary"
+                  }`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(item.name, item.onClick);
+                  }}
+                >
+                  {item.name}
+                </a>
+              ))}
+              <button
+                className="px-4 py-3 mt-6 text-white bg-blue-800 rounded-lg hover:bg-blue-700 transition-colors"
+                onClick={() => setToggleMenu(false)}
               >
-                {item.name}
-              </a>
-            ))}
-            <button
-              className="block w-full px-4 py-2 mt-4 text-center text-white bg-blue-800 rounded-lg"
-              onClick={() => setToggleMenu(false)}
-            >
-              Get Started Now
-            </button>
+                Get Started Now
+              </button>
+            </div>
           </div>
-        </div>
+        )}
       </motion.nav>
     </div>
   );
