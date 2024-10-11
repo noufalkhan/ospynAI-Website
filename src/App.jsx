@@ -40,7 +40,7 @@ const App = () => {
       <div ref={automationRef}>
       <NewAutomation/>
      
-        {/* <Automation /> */}
+        <Automation />
       </div>
       <AiAgents/>
 

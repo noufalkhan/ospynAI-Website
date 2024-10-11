@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 
 import Diagram1 from '../assets/Diagram1.png';
@@ -7,6 +7,7 @@ import Diagram3 from '../assets/Diagram3.png';
 
 const NewAutomation = () => {
     const [selectedCard, setSelectedCard] = useState(0);
+    const [direction, setDirection] = useState(0); // Track swipe direction
     const controls = useAnimation();
 
     const cards = [
@@ -74,6 +75,7 @@ const NewAutomation = () => {
 
     const handleCardClick = (index) => {
         if (index >= 0 && index < cards.length) {
+            setDirection(index > selectedCard ? 1 : -1); // Determine the swipe direction
             setSelectedCard(index);
         }
     };
@@ -147,9 +149,9 @@ const NewAutomation = () => {
                         src={cards[selectedCard].image}
                         alt={cards[selectedCard].title}
                         className='h-[95%] object-cover rounded-lg'
-                        initial={{ opacity: 0, x: 100 }}
+                        initial={{ opacity: 0, x: direction > 0 ? 100 : -100 }} // Swipe direction logic
                         animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -100 }}
+                        exit={{ opacity: 0, x: direction > 0 ? -100 : 100 }}
                         transition={{ duration: 0.5, ease: 'easeInOut' }}
                         drag='x'
                         dragConstraints={{ left: 0, right: 0 }}
