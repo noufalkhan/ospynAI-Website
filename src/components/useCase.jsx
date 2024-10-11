@@ -24,13 +24,13 @@ const imageVariants = {
 const UseCase = () => {
   return (
     <div className='py-5 bg-[#f5f5ff]'>
-      <div className='w-full flex flex-col items-center justify-center p-5 my-10'>
+      <div className='w-full flex flex-col items-center justify-center p-5 my-5'>
         <h1 className='text-2xl lg:text-4xl font-semibold'>How OGI Helps You Achieve More</h1>
         <p>Unlock productivity, improve outcomes, and simplify operations with OGI.</p>
       </div>
 
-      <div className='flex bg-gradient-to-r from-[#4143d0] to-[#870199] h-auto rounded-3xl w-[90%] mx-auto'>
-        <div className='flex flex-col p-24 gap-10 items-center justify-center w-full lg:w-8/12 h-auto'>
+      <div className='flex flex-col lg:flex-row bg-gradient-to-r from-[#4143d0] to-[#870199] h-auto rounded-3xl w-[90%] mx-auto'>
+        <div className='flex flex-col p-10 lg:p-24 gap-5 lg:gap-10 items-center justify-center w-full lg:w-8/12 h-auto'>
           {/* Sections with staggered animation */}
           {[
             { title: 'Increase Revenue', icon: <IconTrendingUp className='w-10 h-10 text-cyan-300' /> },
@@ -39,19 +39,20 @@ const UseCase = () => {
           ].map((item, index) => (
             <motion.div
               key={item.title}
-              className='flex items-center gap-3'
+              className='flex items-center gap-3 lg:gap-5'
               variants={sectionVariants}
               initial="hidden"
               whileInView="visible"
               custom={index}
               viewport={{ once: true, amount: 0.3 }} // Trigger only the first time in view
             >
-              <div className='bg-gradient-to-t from-[#6c64d9] to-[#5d54d2] p-5 rounded-xl'>
+              {/* Icon section hidden on mobile */}
+              <div className='hidden lg:flex bg-gradient-to-t from-[#6c64d9] to-[#5d54d2] p-5 rounded-xl'>
                 {item.icon}
               </div>
               <div className='text-white flex flex-col gap-1'>
-                <p className='text-2xl font-semibold'>{item.title}</p>
-                <p>
+                <p className='text-lg lg:text-2xl font-semibold'>{item.title}</p>
+                <p className='text-sm lg:text-base'>
                   {item.title === 'Increase Revenue'
                     ? 'Automating workflows to increase efficiency, enabling employees to focus on strategies that directly boost revenue.'
                     : item.title === 'Optimize Operations'
@@ -63,7 +64,7 @@ const UseCase = () => {
           ))}
         </div>
 
-        <div className='w-5/12 h-full lg:flex hidden'>
+        <div className='w-full lg:w-5/12 h-full lg:flex hidden'>
           <motion.img
             className='object-cover w-[80%] shimmer-effect'
             src={Diagram4}

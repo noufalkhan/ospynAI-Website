@@ -1,23 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 import Diagram1 from '../assets/Diagram1.png';
 import Diagram2 from '../assets/Diagram2.png';
 import Diagram3 from '../assets/Diagram3.png';
+import Diagram5 from '../assets/Diagram5.png';
 
 const NewAutomation = () => {
     const [selectedCard, setSelectedCard] = useState(0);
     const [direction, setDirection] = useState(0); // Track swipe direction
-    const controls = useAnimation();
 
     const cards = [
         {
-            title: (
-                <>
-                    <div>LLM Based</div>
-                    <div>Onboarding Validation</div>
-                </>
-            ),
+            title: 'LLM Based Onboarding Validation',
             content: 'Enhance onboarding accuracy and efficiency using advanced AI-driven validation',
             image: Diagram1,
             demoText: (
@@ -27,12 +22,7 @@ const NewAutomation = () => {
             )
         },
         {
-            title: (
-                <>
-                    <div>Get AI Based</div>
-                    <div>Account Payable Process</div>
-                </>
-            ),
+            title: 'Get AI Based Account Payable Process',
             content: 'AI-driven automation transforms the accounts payable process, reducing time consumption and eliminating errors',
             image: Diagram2,
             demoText: (
@@ -42,12 +32,7 @@ const NewAutomation = () => {
             )
         },
         {
-            title: (
-                <>
-                    <div>AI Powered Central Bank</div>
-                    <div>Circular/Compliance Mapping</div>
-                </>
-            ),
+            title: 'AI Powered Central Bank Circular/Compliance Mapping',
             content: 'AI-powered tool maps Central Bank updates, ensuring internal circulars stay updated.',
             image: Diagram3,
             demoText: (
@@ -57,14 +42,9 @@ const NewAutomation = () => {
             )
         },
         {
-            title: (
-                <>
-                    <div>Conversational Assistant</div>
-                    <div>For Information Retrieval</div>
-                </>
-            ),
+            title: 'Conversational Assistant For Information Retrieval',
             content: 'Boost your content and data repository with AI precision and role-based access for departments.',
-            image: Diagram3,
+            image: Diagram5,
             demoText: (
                 <>
                     "We all need an assistant to resolve our queries at the workplace. <strong>Ospyn AI</strong>, our conversational AI assistant, has the capability to assist each and every employee within a department, saving up to <strong>50%</strong> of the time spent on information retrieval, which results in an annual saving of <strong>1.81 million USD</strong>"
@@ -92,49 +72,24 @@ const NewAutomation = () => {
         }
     };
 
-    const handleMouseDown = (event) => {
-        // Add mouse dragging functionality
-        event.preventDefault();
-        const startX = event.clientX;
-
-        const handleMouseMove = (moveEvent) => {
-            const deltaX = moveEvent.clientX - startX;
-
-            if (Math.abs(deltaX) > 50) {
-                handleSwipe(event, { offset: { x: deltaX } });
-                window.removeEventListener('mousemove', handleMouseMove);
-                window.removeEventListener('mouseup', handleMouseUp);
-            }
-        };
-
-        const handleMouseUp = () => {
-            window.removeEventListener('mousemove', handleMouseMove);
-            window.removeEventListener('mouseup', handleMouseUp);
-        };
-
-        window.addEventListener('mousemove', handleMouseMove);
-        window.addEventListener('mouseup', handleMouseUp);
-    };
-
     return (
         <div className='h-auto bg-[#f5f5ff] py-20'>
             {/* Cards Section */}
-            <div className='p-4 flex flex-col md:flex-row gap-4 bg-white lg:rounded-full shadow-inner-xl items-center justify-center lg:w-3/4 w-full mx-auto border-2'>
+            <div className='p-4 hidden md:flex flex-col md:flex-row gap-4 bg-white lg:rounded-full shadow-inner-xl items-center justify-center lg:w-3/4 w-full mx-auto border-2'>
                 {cards.map((card, index) => (
                     <motion.div
                         key={index}
                         className={`h-auto px-4 py-2 w-full md:w-72 flex items-center justify-center cursor-pointer transition-all duration-300 rounded-full ${selectedCard === index
-                                ? 'bg-gradient-to-r from-[#4441d1] to-[#8606a2] ring-4 ring-purple-300 text-white font-normal lg:font-bold'
-                                : 'bg-transparent text-black font-normal lg:font-medium hover:bg-gray-100'
+                                ? 'bg-gradient-to-r from-[#4441d1] to-[#8606a2] ring-4 ring-purple-300 text-white  font-normal lg:font-bold'
+                                : 'bg-transparent   text-black font-normal lg:font-medium hover:bg-gray-100'
                             }`}
                         onClick={() => handleCardClick(index)}
-                        onMouseDown={handleMouseDown} // Add mouse down handler
                         whileTap={{ scale: 0.95 }}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ type: 'spring', stiffness: 300 }}
                     >
-                        <p className='text-sm text-center'>
+                        <p className='text-xs lg:text-base text-center '> {/* Maintain original text size */}
                             {card.title}
                         </p>
                     </motion.div>
@@ -142,7 +97,12 @@ const NewAutomation = () => {
             </div>
 
             {/* Carousel Section */}
-            <div className='flex flex-col items-center my-3'>
+            <div className='flex flex-col items-center my-3 p-3 sm:p-0'>
+                {/* Individual Heading for Mobile View */}
+                <div className='md:hidden text-center font-semibold text-xl mb-5'>
+                    {cards[selectedCard].title}
+                </div>
+
                 <div className='h-auto lg:h-[60vh] w-full bg-red-20 flex items-center justify-center'>
                     <motion.img
                         key={selectedCard}
@@ -158,6 +118,7 @@ const NewAutomation = () => {
                         onDragEnd={handleSwipe}
                     />
                 </div>
+
                 {/* Carousel Dots */}
                 <div className='flex space-x-2 my-4'>
                     {cards.map((_, index) => (
@@ -169,7 +130,8 @@ const NewAutomation = () => {
                         />
                     ))}
                 </div>
-                <div className='text-center w-full lg:w-[90%] mx-auto mb-4'>
+
+                <div className='text-left sm:text-center w-full lg:w-[90%] mx-auto mb-4'>
                     {cards[selectedCard].demoText}
                 </div>
 
