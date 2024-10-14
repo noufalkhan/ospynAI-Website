@@ -14,28 +14,28 @@ const NewNavbar = ({ useCaseRef, anlyticViewRef, newAutomationRef }) => {
   const scrollToUseCases = () => {
     if (useCaseRef.current) {
       useCaseRef.current.scrollIntoView({ behavior: 'smooth' });
-      setIsOpen(false); // Close menu after selection
+      setIsOpen(false);
     }
   };
 
   const scrollToNewAutomation = () => {
     if (newAutomationRef.current) {
       newAutomationRef.current.scrollIntoView({ behavior: 'smooth' });
-      setIsOpen(false); // Close menu after selection
+      setIsOpen(false);
     }
   };
 
   const scrollToAnlyticView = () => {
     if (anlyticViewRef.current) {
       anlyticViewRef.current.scrollIntoView({ behavior: 'smooth' });
-      setIsOpen(false); // Close menu after selection
+      setIsOpen(false);
     }
   };
 
   const handleScroll = () => {
     if (typeof window !== 'undefined') {
       const currentScrollY = window.scrollY;
-      setIsVisible(currentScrollY <= lastScrollY || currentScrollY < 50); // Keep navbar visible if scrolling up or near the top
+      setIsVisible(currentScrollY <= lastScrollY || currentScrollY < 50);
       lastScrollY = currentScrollY;
     }
   };
@@ -54,10 +54,10 @@ const NewNavbar = ({ useCaseRef, anlyticViewRef, newAutomationRef }) => {
 
   return (
     <motion.nav
-      className={`bg-white shadow-lg fixed w-full z-20 transition-transform`}
+      className="bg-white shadow-lg fixed w-full z-20 transition-transform"
       initial={{ y: 0 }}
-      animate={{ y: isVisible ? 0 : '-100%' }} // Animate navbar visibility
-      transition={{ duration: 0.3 }} // Adjust the duration for quicker visibility
+      animate={{ y: isVisible ? 0 : '-100%' }}
+      transition={{ duration: 0.3 }}
     >
       <div className="container mx-auto px-4 flex items-center justify-between py-4">
         <div className="text-2xl font-bold text-blue-600">
@@ -72,7 +72,7 @@ const NewNavbar = ({ useCaseRef, anlyticViewRef, newAutomationRef }) => {
           <a href="#use-cases" onClick={scrollToUseCases} className="text-gray-600 font-semibold hover:text-blue-600 transition duration-200">Use Cases</a>
           <a href="#system-architecture" onClick={scrollToAnlyticView} className="text-gray-600 font-semibold hover:text-blue-600 transition duration-200">System Architecture</a>
           <a href="#benefits" onClick={scrollToNewAutomation} className="text-gray-600 font-semibold hover:text-blue-600 transition duration-200">Benefits</a>
-          <a href="https://thebigdatainsights.com/blog" target="_blank" onClick={scrollToNewAutomation} className="text-gray-600 font-semibold hover:text-blue-600 transition duration-200">Blogs</a>
+          <a href="https://thebigdatainsights.com/blog" target="_blank" className="text-gray-600 font-semibold hover:text-blue-600 transition duration-200">Blogs</a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -116,6 +116,7 @@ const NewNavbar = ({ useCaseRef, anlyticViewRef, newAutomationRef }) => {
           <a href="#use-cases" onClick={scrollToUseCases} className="text-gray-600 hover:text-blue-600 transition duration-200">Use Cases</a>
           <a href="#system-architecture" onClick={scrollToAnlyticView} className="text-gray-600 hover:text-blue-600 transition duration-200">System Architecture</a>
           <a href="#benefits" onClick={scrollToNewAutomation} className="text-gray-600 hover:text-blue-600 transition duration-200">Benefits</a>
+          <a href="https://thebigdatainsights.com/blog" target="_blank" className="text-gray-600 hover:text-blue-600 transition duration-200">Blogs</a>
         </motion.div>
       </div>
     </motion.nav>
