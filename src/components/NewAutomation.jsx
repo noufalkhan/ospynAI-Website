@@ -73,7 +73,7 @@ const NewAutomation = () => {
     };
 
     return (
-        <div className='h-auto bg-[#f5f5ff] py-20'>
+        <div className='h-auto bg-[#f5f5ff] py-10'>
             {/* Cards Section */}
             <div className='p-4 hidden md:flex flex-col md:flex-row gap-4 bg-white lg:rounded-full shadow-inner-xl items-center justify-center lg:w-3/4 w-full mx-auto border-2'>
                 {cards.map((card, index) => (

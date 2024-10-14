@@ -23,8 +23,10 @@ const App = () => {
 
       <HeroNew />
 
-      <div ref={newAutomationRef}>
-        <NewAutomation /> {/* Render the NewAutomation component */}
+      <div ref={useCaseRef}>
+      <NewAutomation />
+
+        {/* <UseCase /> */}
       </div>
 
       <AiAgents />
@@ -33,9 +35,12 @@ const App = () => {
         <AnalyticsNew /> {/* Render the AnlyticView component */}
       </div>
 
-      <div ref={useCaseRef}>
+      <div ref={newAutomationRef}>
+        
         <UseCase />
-      </div>
+          {/* <NewAutomation /> Render the NewAutomation component */}
+        </div>
+     
 
       <FooterNew />
     </div>
