@@ -12,7 +12,7 @@ const NewAutomation = () => {
 
     const cards = [
         {
-            title: 'LLM Based Onboarding Validation',
+            title: <p>LLM Based <br />Onboarding Validation</p>,
             content: 'Enhance onboarding accuracy and efficiency using advanced AI-driven validation',
             image: Diagram1,
             demoText: (
