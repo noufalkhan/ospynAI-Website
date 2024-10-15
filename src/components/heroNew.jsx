@@ -55,7 +55,7 @@ const HeroNew = () => {
   return (
     <>
       {/* Main container with gradient background */}
-      <div className='w-full pt-16 bg-gradient-to-r from-[#eee6ff] via-transparent to-[#ffe2f9]'>
+      <div className='w-full pt-16 md:px-5 lg:px-0 bg-gradient-to-r from-[#eee6ff] via-transparent to-[#ffe2f9]'>
         
         {/* Content container with hexagon background */}
         <div
@@ -106,7 +106,7 @@ const HeroNew = () => {
          
           {/* Image section (visible on large screens) */}
           <motion.div
-            className='h-auto md:h-full w-full flex flex-col items-center justify-end sm:hidden lg:flex mt-5 md:mt-20'
+            className='h-auto md:h-full w-full flex flex-col items-center justify-end sm:hidden  xl:flex mt-5 md:mt-20'
             initial='hidden'
             animate='visible'
             variants={subtleFadeIn}

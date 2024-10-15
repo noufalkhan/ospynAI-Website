@@ -5,24 +5,21 @@ import { motion } from "framer-motion";
 const cardVariants = {
   hidden: (direction) => ({
     opacity: 0,
-    x: direction === "left" ? -200 : direction === "right" ? 200 : 0,
-    y: direction === "up" ? -200 : direction === "down" ? 200 : 0,
+    y: direction === "up" ? -200 : 200, // Only animate from top or bottom
   }),
   visible: (index) => ({
     opacity: 1,
-    x: 0,
     y: 0,
     transition: {
       type: "spring",
       stiffness: 150,
       damping: 20,
-      delay: index * 0.1, // Delay based on index
+      delay: index * 0.05, // Reduced delay for faster stagger effect
     },
   }),
   exit: (direction) => ({
     opacity: 0,
-    x: direction === "left" ? -100 : direction === "right" ? 100 : 0,
-    y: direction === "up" ? -100 : direction === "down" ? 100 : 0,
+    y: direction === "up" ? -100 : 100,
     transition: {
       duration: 0.5,
     },
@@ -77,13 +74,10 @@ const AiAgents = () => {
         </p>
       </div>
 
-      {/* Wrapper for mobile/tablet grid and flex-grow on larger screens */}
       <div className="bg-[#f5f5ff] rounded-3xl sm:px-14 py-10 w-full sm:w-3/4 px-20 sm:p-5 mx-auto">
-        {/* Grid for mobile and tablet screens */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:flex lg:flex-wrap lg:gap-3 lg:justify-between">
           {cards.map((card, index) => {
-            // Determine the direction for each card based on its index
-            const direction = index % 4 === 0 ? "left" : index % 4 === 1 ? "right" : index % 4 === 2 ? "up" : "down";
+            const direction = index % 2 === 0 ? "up" : "down";
 
             return (
               <motion.div
