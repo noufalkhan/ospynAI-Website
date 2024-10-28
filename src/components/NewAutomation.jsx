@@ -73,7 +73,7 @@ const NewAutomation = () => {
     };
 
     return (
-        <div className='h-auto bg-[#f5f5ff] py-10'>
+        <div className='h-auto px-5 bg-[#f5f5ff] py-10'>
             {/* Cards Section */}
             <div className='p-4 hidden md:flex flex-col md:flex-row gap-4 bg-white lg:rounded-full shadow-inner-xl items-center justify-center lg:w-3/4 w-full mx-auto border-2'>
                 {cards.map((card, index) => (
@@ -89,7 +89,7 @@ const NewAutomation = () => {
                         animate={{ opacity: 1 }}
                         transition={{ type: 'spring', stiffness: 300 }}
                     >
-                        <p className='text-xs lg:text-base text-center '> {/* Maintain original text size */}
+                        <p className='text-[10px]  lg:text-sm text-center '> {/* Maintain original text size */}
                             {card.title}
                         </p>
                     </motion.div>
@@ -99,7 +99,7 @@ const NewAutomation = () => {
             {/* Carousel Section */}
             <div className='flex flex-col items-center my-3 p-3 sm:p-0'>
                 {/* Individual Heading for Mobile View */}
-                <div className='md:hidden text-center font-semibold text-xl mb-5'>
+                <div className='md:hidden text-center font-semibold  text-xl mb-5'>
                     {cards[selectedCard].title}
                 </div>
 

@@ -34,10 +34,10 @@ const AiAgents = () => {
     "Sales AI Assistant",
     "Marketing AI Assistant",
     "Finance AI Assistant",
+    "Management AI Assistant",
     "HR AI Assistant",
     "Operation AI Assistant",
-    "Mgmt AI Assistant",
-    "HR AI Assistant",
+    "Analytical AI Assistant",
     "Validation AI Assistant",
   ];
 

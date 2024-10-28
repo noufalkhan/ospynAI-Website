@@ -55,7 +55,7 @@ const HeroNew = () => {
   return (
     <>
       {/* Main container with gradient background */}
-      <div className='w-full pt-16 md:px-5 lg:px-0 bg-gradient-to-r from-[#eee6ff] via-transparent to-[#ffe2f9]'>
+      <div className='w-full pt-16  sm:px-10 md:px-5 lg:px-0 bg-gradient-to-r from-[#eee6ff] via-transparent to-[#ffe2f9]'>
         
         {/* Content container with hexagon background */}
         <div
