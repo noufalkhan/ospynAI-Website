@@ -65,7 +65,7 @@ const AiAgents = () => {
   }, []);
 
   return (
-    <div className="py-20">
+    <div className="py-5 md:py-20">
       <div className="w-full flex flex-col items-center justify-center">
         <h1 className="text-3xl font-bold mb-2">Meet Our AI Agents</h1>
         <p className="text-center mb-8">
