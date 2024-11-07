@@ -6,6 +6,7 @@ import NewNavbar from "./components/newnavbar";
 import NewAutomation from "./components/NewAutomation";
 import AiAgents from "./components/AiAgents";
 import UseCase from "./components/useCase";
+import HeroAnimate from "./components/HeroAnimate";
 
 const App = () => {
   // Create refs for all relevant sections
@@ -20,8 +21,9 @@ const App = () => {
         anlyticViewRef={anlyticViewRef} 
         newAutomationRef={newAutomationRef} // Pass the NewAutomation ref
       />
+<HeroAnimate />
 
-      <HeroNew />
+      {/* <HeroNew /> */}
 
       <div ref={useCaseRef}>
       <NewAutomation />
@@ -29,7 +31,7 @@ const App = () => {
         {/* <UseCase /> */}
       </div>
 
-      <AiAgents />
+      {/* <AiAgents /> */}
 
       <div ref={anlyticViewRef}>
         <AnalyticsNew /> {/* Render the AnlyticView component */}
