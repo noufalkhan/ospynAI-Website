@@ -21,8 +21,8 @@ const App = () => {
         anlyticViewRef={anlyticViewRef} 
         newAutomationRef={newAutomationRef} // Pass the NewAutomation ref
       />
-<HeroAnimate />
 
+<HeroAnimate />
       {/* <HeroNew /> */}
 
       <div ref={useCaseRef}>
