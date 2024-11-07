@@ -49,7 +49,18 @@ const glowTextAnimation = {
   },
 };
 
+const buttonVariants = {
+  rest: { opacity: 1, scale: 1 },
+  hover: { scale: 1.1, opacity: 0.8 },
+  tap: { scale: 0.95, opacity: 1 },
+};
+
 const HeroAnimate = () => {
+  const handleClick = () => {
+    // Opens the contact page in a new tab
+    window.open('https://thebigdatainsights.com/contact-us', '_blank');
+  };
+
   return (
     <div className="h-screen w-full bg-gradient-to-r from-[#f5f5ff] via-[#f9f9f9] to-[#e3e3ff] flex items-center justify-center relative overflow-hidden">
       {/* Background Floating Elements */}
@@ -84,12 +95,12 @@ const HeroAnimate = () => {
         className="text-center px-5 md:px-10 lg:px-20 max-w-4xl space-y-6"
       >
         <motion.p
-          className="text-gray-700 text-2xl md:text-3xl tracking-wide font-semibold"
+          className="text-gray-700 text-xl md:text-3xl tracking-wide font-semibold"
           variants={subtleFadeIn}
         >
           Revolutionize Your Business with
         </motion.p>
-        
+
         <motion.h1
           className="text-5xl md:text-7xl text-gray-900 font-bold"
           variants={subtleFadeIn}
@@ -97,22 +108,36 @@ const HeroAnimate = () => {
           <motion.span
             className="text-[#493aca] drop-shadow-lg "
             variants={glowTextAnimation} // Glow effect on AI
-            whileHover={{ scale: 1.05, textShadow: '0px 0px 15px rgba(73, 58, 202, 1)' }} // Hover text shadow effect
+            whileHover={{
+              scale: 1.05,
+              textShadow: '0px 0px 15px rgba(73, 58, 202, 1)', // Hover text shadow effect
+            }}
           >
-            AI&nbsp; 
-          </motion.span> 
+            AI&nbsp;
+          </motion.span>
           Powered Process Automation!
         </motion.h1>
-        
+
         <motion.p
           className="text-gray-700 text-lg md:text-xl lg:text-2xl w-full md:w-3/4 lg:w-full mx-auto leading-relaxed my-2 md:my-5"
           variants={subtleFadeIn}
         >
           Lead with confidence by transforming uncertainty into an advantage through laser-focused, Gen-AI-powered process optimization.
         </motion.p>
+
+        <motion.button
+          className="bg-[#4144d3] px-6 py-4 rounded-lg text-white text-sm font-semibold tracking-wide"
+          variants={buttonVariants}
+          initial="rest"
+          whileHover="hover"
+          whileTap="tap"
+          onClick={handleClick}
+        >
+          Get Started Now
+        </motion.button>
       </motion.div>
     </div>
   );
-}
+};
 
 export default HeroAnimate;
