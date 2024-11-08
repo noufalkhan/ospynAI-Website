@@ -55,12 +55,12 @@ const NewNavbar = ({ useCaseRef, anlyticViewRef, newAutomationRef }) => {
 
   return (
     <motion.nav
-      className="bg-white  fixed w-full z-20 transition-transform"
+      className="bg-white 0  fixed w-full z-20 transition-transform"
       initial={{ y: 0 }}
       animate={{ y: isVisible ? 0 : '-100%' }}
       transition={{ duration: 0.3 }}
     >
-      <div className="container mx-auto px-4 flex items-center justify-between py-4">
+      <div className="w-full lg:px-10 px-4 mx-auto  flex items-center justify-between py-4">
         <div className="text-2xl font-bold text-blue-600">
           <a href="/">
             <img src={OspynAILogoPNGFile} alt="Logo" className="h-8" />

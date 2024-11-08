@@ -38,7 +38,7 @@ const NewAutomation = () => {
         {
             title: 'AI Powered Central Bank Circular/Compliance Mapping',
             content: 'AI-powered tool maps Central Bank updates, ensuring internal circulars stay updated.',
-            image: Diagram3,
+            image: Newdiagram3,
             demoText: (
                 <>
                     "Keeping track of every update from the RBI is both critical and risky. <strong>Ospyn AI</strong> plays a crucial role by saving <strong>50%</strong> of the time spent reviewing and checking RBI guidelines through AI-powered mapping, resulting in savings of up to <strong>0.90 million USD</strong> annually"

@@ -22,7 +22,7 @@ const AnalyticsNew = () => {
       </div>
 
       {/* main block */}
-      <div className=" xl:w-[1370px]  flex items-center justify-center relative">
+      <div className=" xl:w-[1350px]  flex items-center justify-center relative">
         <div className="flex items-center justify-center">
           <img className="bg-green-30  xl:w-3/4 z-10" src={mainblock} alt="" />
 
