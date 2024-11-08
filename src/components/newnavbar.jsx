@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import ospynai from "../assets/ospynai.svg";
+import OspynAILogoPNGFile from "../assets/OspynAILogoPNGFile.png";
 
 const NewNavbar = ({ useCaseRef, anlyticViewRef, newAutomationRef }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,7 +55,7 @@ const NewNavbar = ({ useCaseRef, anlyticViewRef, newAutomationRef }) => {
 
   return (
     <motion.nav
-      className="bg-white shadow-lg fixed w-full z-20 transition-transform"
+      className="bg-white  fixed w-full z-20 transition-transform"
       initial={{ y: 0 }}
       animate={{ y: isVisible ? 0 : '-100%' }}
       transition={{ duration: 0.3 }}
@@ -62,17 +63,17 @@ const NewNavbar = ({ useCaseRef, anlyticViewRef, newAutomationRef }) => {
       <div className="container mx-auto px-4 flex items-center justify-between py-4">
         <div className="text-2xl font-bold text-blue-600">
           <a href="/">
-            <img src={ospynai} alt="Logo" className="h-8" />
+            <img src={OspynAILogoPNGFile} alt="Logo" className="h-8" />
           </a>
         </div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6">
-          <a href="/" className="text-gray-600 font-semibold hover:text-blue-600 transition duration-200">Home</a>
-          <a href="#use-cases" onClick={scrollToUseCases} className="text-gray-600 font-semibold hover:text-blue-600 transition duration-200">Use Cases</a>
-          <a href="#system-architecture" onClick={scrollToAnlyticView} className="text-gray-600 font-semibold hover:text-blue-600 transition duration-200">System Architecture</a>
-          <a href="#benefits" onClick={scrollToNewAutomation} className="text-gray-600 font-semibold hover:text-blue-600 transition duration-200">Benefits</a>
-          <a href="https://thebigdatainsights.com/blog" target="_blank" className="text-gray-600 font-semibold hover:text-blue-600 transition duration-200">Blogs</a>
+          <a href="/" className="text-gray-600  hover:text-blue-600 transition duration-200">Home</a>
+          <a href="#use-cases" onClick={scrollToUseCases} className="text-gray-600  hover:text-blue-600 transition duration-200">Use Cases</a>
+          <a href="#system-architecture" onClick={scrollToAnlyticView} className="text-gray-600  hover:text-blue-600 transition duration-200">System Architecture</a>
+          <a href="#benefits" onClick={scrollToNewAutomation} className="text-gray-600  hover:text-blue-600 transition duration-200">Benefits</a>
+          <a href="https://thebigdatainsights.com/blog" target="_blank" className="text-gray-600  hover:text-blue-600 transition duration-200">Blogs</a>
         </div>
 
         {/* Mobile Menu Button */}

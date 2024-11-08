@@ -5,6 +5,10 @@ import Diagram1 from '../assets/Diagram1.png';
 import Diagram2 from '../assets/Diagram2.png';
 import Diagram3 from '../assets/Diagram3.png';
 import Diagram5 from '../assets/Diagram5.png';
+import Newdiagram1 from '../assets/Newdiagram1.png';
+import Newdiagram2 from '../assets/Newdiagram2.png';
+import Newdiagram3 from '../assets/Newdiagram3.png';
+import Newdiagram4 from '../assets/Newdiagram4.png';
 
 const NewAutomation = () => {
     const [selectedCard, setSelectedCard] = useState(0);
@@ -14,7 +18,7 @@ const NewAutomation = () => {
         {
             title: <p>LLM Based <br />Onboarding Validation</p>,
             content: 'Enhance onboarding accuracy and efficiency using advanced AI-driven validation',
-            image: Diagram1,
+            image:Newdiagram1,
             demoText: (
                 <>
                     "Customer onboarding is often tedious and time-consuming. With <strong>Ospyn AI</strong>, you can save up to <strong>25%</strong> in turnaround time by ensuring proper validation of customer information, leading to annual savings of up to <strong>0.75 million USD</strong>"
@@ -24,7 +28,7 @@ const NewAutomation = () => {
         {
             title: 'Get AI Based Account Payable Process',
             content: 'AI-driven automation transforms the accounts payable process, reducing time consumption and eliminating errors',
-            image: Diagram2,
+            image: Newdiagram2,
             demoText: (
                 <>
                     "Manually calibrating a sync between your purchase orders, invoices, and GNRs is a complex and error-prone task. With <strong>Ospyn AI</strong>'s Invoice AI Assistant, you can significantly improve your system's efficiency and accuracy, saving <strong>50%</strong> of the time spent on invoice processing and reducing overall costs by <strong>1.13 million USD</strong> annually"
@@ -34,7 +38,7 @@ const NewAutomation = () => {
         {
             title: 'AI Powered Central Bank Circular/Compliance Mapping',
             content: 'AI-powered tool maps Central Bank updates, ensuring internal circulars stay updated.',
-            image: Diagram3,
+            image: Newdiagram3,
             demoText: (
                 <>
                     "Keeping track of every update from the RBI is both critical and risky. <strong>Ospyn AI</strong> plays a crucial role by saving <strong>50%</strong> of the time spent reviewing and checking RBI guidelines through AI-powered mapping, resulting in savings of up to <strong>0.90 million USD</strong> annually"
@@ -44,7 +48,7 @@ const NewAutomation = () => {
         {
             title: 'Conversational Assistant For Information Retrieval',
             content: 'Boost your content and data repository with AI precision and role-based access for departments.',
-            image: Diagram5,
+            image: Newdiagram4,
             demoText: (
                 <>
                     "We all need an assistant to resolve our queries at the workplace. <strong>Ospyn AI</strong>, our conversational AI assistant, has the capability to assist each and every employee within a department, saving up to <strong>50%</strong> of the time spent on information retrieval, which results in an annual saving of <strong>1.81 million USD</strong>"

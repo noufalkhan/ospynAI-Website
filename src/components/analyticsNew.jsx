@@ -94,7 +94,7 @@ const AnalyticsNew = () => {
             </div>
             <div className="col-span-9 flex flex-col gap-1 p-2">
               <p className="text-[#27d38e] font-semibold text-lg">AI/ML Models</p>
-              <p className="text-sm lg:text-base text-gray-500">Offers pre-build models and custom models</p>
+              <p className="text-sm lg:text-base text-gray-500">Offers pre-built models and custom models</p>
             </div>
           </motion.div>
 
