@@ -11,7 +11,11 @@ const FooterNew = () => {
             {/* Top Section */}
             <div className="px-5 lg:px-20 py-4">
                 <div className="flex flex-col lg:flex-row lg:justify-between items-center gap-5">
-                    <img src={ospynlogo} alt="Ospyn Logo" className="h-20 w-20" />
+                    {/* Logo */}
+                    <div className="flex-shrink-0">
+                        <img src={ospynlogo} alt="Ospyn Logo" className="h-20 w-20" />
+                    </div>
+                    {/* Text and Button */}
                     <div className="text-center lg:text-left">
                         <p className="mb-3">Start your Business Today!</p>
                         <button
@@ -25,8 +29,8 @@ const FooterNew = () => {
             </div>
 
             {/* Bottom Section */}
-            <div className="bg-[#230841] pb-1 px-5 lg:px-20">
-                <div className="text-center lg:text-left text-xs">
+            <div className="bg-[#230841] w-full flex items-center justify-center pb-3 px-5 lg:px-20">
+                <div className="text-center text-xs">
                     <p>&copy; Ospyn Technologies 2024</p>
                 </div>
             </div>
