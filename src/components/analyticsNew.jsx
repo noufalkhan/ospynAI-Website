@@ -22,12 +22,12 @@ const AnalyticsNew = () => {
       </div>
 
       {/* main block */}
-      <div className=" xl:w-[1380px] flex items-center justify-center relative">
+      <div className=" xl:w-[1370px]  flex items-center justify-center relative">
         <div className="flex items-center justify-center">
           <img className="bg-green-30  xl:w-3/4 z-10" src={mainblock} alt="" />
 
           <motion.img
-            className="absolute -top-5 right-36 hidden xl:flex"
+            className=" absolute -top-5 right-28 hidden xl:flex"
             src={automation}
             alt=""
             initial={{ opacity: 0, y: -50 }}
@@ -37,7 +37,7 @@ const AnalyticsNew = () => {
           />
 
           <motion.img
-            className="absolute top-16 left-44 hidden xl:flex"
+            className="absolute top-16 left-36 hidden xl:flex"
             src={aimlmodels}
             alt=""
             initial={{ opacity: 0, x: -50 }}
@@ -47,7 +47,7 @@ const AnalyticsNew = () => {
           />
 
           <motion.img
-            className="absolute -bottom-10 right-36 hidden xl:flex"
+            className="absolute -bottom-10 right-28 hidden xl:flex"
             src={datamanagement}
             alt=""
             initial={{ opacity: 0, y: 50 }}
