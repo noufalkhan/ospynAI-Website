@@ -10,7 +10,7 @@ import aimodelicon from "../assets/aimodelicon.svg";
 
 const AnalyticsNew = () => {
   return (
-    <div className="h-auto bg-gradient-to-r from-[#eee6ff] via-transparent to-[#ffe2f9] py-20 px-10 flex flex-col items-center justify-center gap-10">
+    <div className="h-auto bg-gradient-to-r from-[#f5f5ff] via-[#f9f9f9] to-[#e3e3ff] py-20 px-10 flex flex-col items-center justify-center gap-10">
       <div className="bg-red-40 w-full flex flex-col items-center justify-center gap-2">
         <p className="text-2xl text-center lg:text-4xl font-semibold">
           The Backbone of Seamless Integration and Smart Analytics
