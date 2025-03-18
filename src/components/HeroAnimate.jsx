@@ -58,7 +58,7 @@ const buttonVariants = {
 const HeroAnimate = () => {
   const handleClick = () => {
     // Opens the contact page in a new tab
-    window.open('https://thebigdatainsights.com/contact-us', '_blank');
+    window.open('https://ospynai.com/contact-us', '_blank');
   };
 
   return (

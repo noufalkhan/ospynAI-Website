@@ -73,7 +73,7 @@ const NewNavbar = ({ useCaseRef, anlyticViewRef, newAutomationRef }) => {
           <a href="#use-cases" onClick={scrollToUseCases} className="text-gray-600  hover:text-blue-600 transition duration-200">Use Cases</a>
           <a href="#system-architecture" onClick={scrollToAnlyticView} className="text-gray-600  hover:text-blue-600 transition duration-200">System Architecture</a>
           <a href="#benefits" onClick={scrollToNewAutomation} className="text-gray-600  hover:text-blue-600 transition duration-200">Benefits</a>
-          <a href="https://thebigdatainsights.com/blog" target="_blank" className="text-gray-600  hover:text-blue-600 transition duration-200">Blogs</a>
+          <a href="https://ospynai.com/blog" target="_blank" className="text-gray-600  hover:text-blue-600 transition duration-200">Blogs</a>
         </div>
 
         {/* Mobile Menu Button */}

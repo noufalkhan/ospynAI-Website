@@ -3,7 +3,7 @@ import ospynlogo from '../assets/ospynlogo.svg';
 
 const FooterNew = () => {
     const handleGetStartedClick = () => {
-        window.open('https://thebigdatainsights.com/contact-us', '_blank');
+        window.open('https://ospynai.com/contact-us', '_blank');
     };
 
     return (
@@ -31,7 +31,7 @@ const FooterNew = () => {
             {/* Bottom Section */}
             <div className="bg-[#230841] w-full flex items-center justify-center pb-3 px-5 lg:px-20">
                 <div className="text-center text-xs">
-                    <p>&copy; Ospyn Technologies 2024</p>
+                    <p>&copy; Ospyn Technologies {new Date().getFullYear()}</p>
                 </div>
             </div>
         </footer>

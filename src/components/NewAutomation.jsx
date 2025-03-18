@@ -146,7 +146,7 @@ const NewAutomation = () => {
                 <div className='flex items-center justify-center'>
                     <motion.button
                         className='bg-[#4144d3] px-6 py-4 rounded-lg text-white text-sm font-semibold tracking-wide'
-                        onClick={() => window.open('https://thebigdatainsights.com/contact-us', '_blank')}
+                        onClick={() => window.open('https://ospynai.com/contact-us', '_blank')}
                     >
                         Get Started Now
                     </motion.button>
